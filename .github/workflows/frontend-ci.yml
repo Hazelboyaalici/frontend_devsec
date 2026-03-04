@@ -1,0 +1,26 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo'yu çek
+      uses: actions/checkout@v4
+
+    - name: Node kur
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Paketleri yükle
+      run: npm install
+
+    - name: Build al
+      run: npm run build

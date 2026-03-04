@@ -58,5 +58,5 @@ jobs:
             docker pull ${{ env.DOCKER_FRONTEND_IMAGE }}:2.0.0
             docker stop frontend || true
             docker rm frontend || true
-            docker run -d --name frontend -p 80:80 ${{ env.DOCKER_FRONTEND_IMAGE }}:2.0.0
+            docker run -d --name frontend -p 8080:80 ${{ env.DOCKER_FRONTEND_IMAGE }}:2.0.0
           '

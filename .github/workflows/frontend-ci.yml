@@ -60,3 +60,6 @@ jobs:
             docker rm frontend || true
             docker run -d --name frontend -p 8080:80 ${{ env.DOCKER_FRONTEND_IMAGE }}:2.0.0
           '
+      - name: Copy docker-compose.elk.yml file 
+        run: | 
+          scp docker-compose.elk.yml ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:~/docker-compose.elk.yml
